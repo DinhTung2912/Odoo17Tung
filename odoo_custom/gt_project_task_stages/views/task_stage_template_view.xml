@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="task_stage_template_view_form" model="ir.ui.view">
+		<field name="name">task.stage.template.view</field>
+		<field name="model">task.stage.template</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<group>
+							<field name="name"/>
+					   		<field name="stage" widget="many2many_tags"/>
+					   	</group>
+					</group>
+		   		</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="task_stage_template_view_tree" model="ir.ui.view">
+		<field name="name">task.stage.template.view</field>
+		<field name="model">task.stage.template</field>
+		<field name="arch" type="xml">
+		   <tree>
+		   		<field name="name"/>
+		   		<field name="stage" widget="many2many_tags"/>
+		   </tree>
+		</field>
+	</record>
+
+	<record id="task_stage_template_action" model="ir.actions.act_window">
+		<field name="name">Task Stage Template</field>
+		<field name="res_model">task.stage.template</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="menu_task_stage_template" name="Task Stage Template" action="task_stage_template_action" parent="project.menu_project_config" sequence="15"/>
+
+</odoo>

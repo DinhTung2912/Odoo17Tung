@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="project_task_stage_inherit" model="ir.ui.view">
+        <field name="name">purchase.task.stage.view.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="sale_project.product_template_form_view_invoice_policy_inherit_sale_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_template_id']" position="after">
+                <group domain="[('service_tracking', 'in', ('task_in_project', 'project_only'))]">
+                    <field name="task_stage_template_id"/>
+                    <field name="task_stage_ids" widget="many2many_tags"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
